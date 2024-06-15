@@ -1,14 +1,14 @@
-document.addEventListener('DOMContentLoader', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('financeForm');
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    let income = document.getElementById('income').value;
-    let expenses = document.getElementById('expenditure').value;
+    let income = parseFloat(document.getElementById('income').value);
+    let expenses = parseFloat(document.getElementById('expenditure').value);
     if (income && expenses) {
-      localStorage.getItem('income') ? income += localStorage.getItem('income') : income += 0;
-      localStorage.getItem('expenditure') ? expenses += localStorage.getItem('expenditure') : expenses += 0;
+      income += parseFloat(localStorage.getItem('income') || '0');
+      expenses += parseFloat(localStorage.getItem('expenditure') || '0');
       localStorage.setItem('income', income);
       localStorage.setItem('expenditure', expenses);
       alert('Successfully saved data');
