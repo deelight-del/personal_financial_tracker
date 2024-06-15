@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('financeForm');
+  const form = document.querySelector('form');
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
